@@ -42,7 +42,18 @@ spring:
     #com.zaxxer.hikari.HikariConfig: DEBUG
     #com.zaxxer.hikari: TRACE
 
+kakao:
+  Nativekey: 
+  RestApiKey: 
+  JavascriptKey: 
+  AdminKey: 
+  ClientSecret: 
+  RedirectUri: 
 
+google:
+  ClientId: 
+  ClientSecret: 
+  RedirectUri: 
 
 
 
