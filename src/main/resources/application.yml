@@ -1,0 +1,48 @@
+server:
+  port: 8000 #원래 8080
+  servlet:
+    context-path: /
+    #encoding:
+      #charset: UTF-8
+      #enabled: true
+      #force: true
+  tomcat:
+    accept-count: 200 # 작업 큐 크기 Default = 100, 임의로 설정을 해서 나중에 혹시나 커넥션 에러에 대비한 예방책
+    relaxed-query-chars: "<,>,[,\\,],^,`,{,|,},-,_,."
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://127.0.0.1:3307/snowhub?serverTimezone=Asia/Seoul
+    username: root
+    password: "1234"
+    hikari:
+      maximum-pool-size: 401 # mariadb default 151
+    #driver-class-name: com.mysql.cj.jdbc.Driver
+    #url: jdbc:mysql://localhost:3306/fbase?serverTimezone=Asia/Seoul
+    #username: root
+    #password: "0000"
+
+  jpa:
+    database: mysql # 명시적으로 선언
+    open-in-view: true
+    hibernate:
+      ddl-auto: update #update,none,create(프로젝트시작시,테이블새로생성, 그래서 초기에만 create 그 이후는 update로 설정변경)
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      #use-new-id-generator-mappings: false # false-> jpa가 사용하는 기본 넘버링 전략 포기, true면 그 반대
+    show-sql: false # Console창에  Entity 결과를 보여준다.
+    properties: # Console창에 보여줄때, 보기좋게 정렬을 해준다.
+      hibernate.format_sql: false
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+#logging:
+  #level:
+    #com.zaxxer.hikari.HikariConfig: DEBUG
+    #com.zaxxer.hikari: TRACE
+
+
+
+
+
